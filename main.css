@@ -1,0 +1,109 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: white;
+    font-family: 'Cabin';
+    font-size: 30px;
+    color: #424242;
+}
+
+header {
+    background: #424242;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    position: fixed;
+    color: white;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 100%;
+}
+
+nav>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+nav>ul>li {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+nav>ul>li>a:hover {
+    color: #81D4FA;
+    cursor: pointer;
+    transition: color 0.2s linear;
+}
+
+main:before {
+    content: '';
+    display: block;
+    height: 50px;
+}
+
+main {
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+div.jumbotron {
+    background-image: url(https://cdn.searchenginejournal.com/wp-content/uploads/2018/04/clients-from-hell-760x400.png);
+    background-size: cover;
+    font-family: 'Roboto';
+    font-size: 1.5em;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background: #FFCDD2; */
+    position: relative;
+    transform: translateZ(-1px) scale(2.1);
+    z-index: -1;
+    color: white;
+}
+
+div.jumbotron>* {
+    padding-bottom: 10px;
+}
+
+div.jumbotron>h1:after {
+    content: '';
+    height: 2px;
+    border-radius: 4px;
+    background-color: #424242;
+    width: 100%;
+    display: block;
+}
+
+div.jumbotron>h2 {
+    font-size: 0.75em;
+}
+
+section {
+    background: white;
+    position: relative;
+    /* z-index: 4; */
+}
+
+section>p {
+    padding: 15px;
+    font-size: 1em;
+}
