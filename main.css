@@ -6,18 +6,23 @@
     padding: 0;
 }
 
+* {
+    --header-height: 2em;
+    --perspective: 0.07em;
+}
+
 body {
     background: white;
     font-family: 'Cabin';
-    font-size: 30px;
+    font-size: 6vw;
     color: #424242;
 }
 
 header {
     background: #424242;
     width: 100%;
-    height: 50px;
-    padding: 5px;
+    height: var(--header-height);
+    padding: 0.5em;
     position: fixed;
     color: white;
     z-index: 10;
@@ -39,8 +44,8 @@ nav>ul {
 
 nav>ul>li {
     display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
 }
 
 nav>ul>li>a:hover {
@@ -52,58 +57,90 @@ nav>ul>li>a:hover {
 main:before {
     content: '';
     display: block;
-    height: 50px;
+    height: var(--header-height);
 }
 
 main {
-    perspective: 1px;
+    perspective: var(--perspective);
     transform-style: preserve-3d;
     overflow-x: hidden;
     overflow-y: scroll;
     height: 100vh;
 }
-
+    
 div.jumbotron {
-    background-image: url(https://cdn.searchenginejournal.com/wp-content/uploads/2018/04/clients-from-hell-760x400.png);
-    background-size: cover;
+    background: linear-gradient(red, rgba(0, 123, 255, .1)),
+    url(https://cdn.searchenginejournal.com/wp-content/uploads/2018/04/clients-from-hell-760x400.png) center / cover no-repeat;
     font-family: 'Roboto';
-    font-size: 1.5em;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background: #FFCDD2; */
     position: relative;
-    transform: translateZ(-1px) scale(2.1);
+    transform: translateZ( calc( var(--perspective) * -1 ) ) scale(2.1);
     z-index: -1;
     color: white;
 }
 
 div.jumbotron>* {
-    padding-bottom: 10px;
+    padding-bottom: 0.2em;
 }
 
 div.jumbotron>h1:after {
     content: '';
-    height: 2px;
-    border-radius: 4px;
-    background-color: #424242;
+    height: 0.05em;
+    border-radius: 0.05em;
+    background-color: white;
     width: 100%;
     display: block;
 }
 
+div.jumbotron>h1 {
+    font-size: 1.8em;
+}
+
 div.jumbotron>h2 {
-    font-size: 0.75em;
+    font-size: 1.1em;
 }
 
 section {
     background: white;
     position: relative;
-    /* z-index: 4; */
+    display: flex;
+    flex-direction: column;
 }
 
 section>p {
-    padding: 15px;
+    padding: 0.8em;
     font-size: 1em;
+    align-self: center;
+}
+
+section>h3 {
+    color: white;
+    text-align:center;
+    letter-spacing: 1em;
+    background-color: #424242;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+/* Desktop view */
+@media only screen and (min-width: 769px) {
+    body {
+        font-size: 30px;
+    }
+
+    div.jumbotron>h1 {
+        font-size: 3em;
+    }
+
+    div.jumbotron>h2 {
+        font-size: 1.8em;
+    }
+
+    section>p {
+        max-width: 1000px;
+    }
 }
